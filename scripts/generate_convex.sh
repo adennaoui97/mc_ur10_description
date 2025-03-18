@@ -39,7 +39,7 @@ function generate_convexes()
         echo "-- Generating convex hull for ${mesh}"
         mkdir -p ${tmp_path}/qc/${robot_name}
         mkdir -p ${gen_path}/convex/${robot_name}
-        gen_cloud=${tmp_path}/qc/${robot_name}/$mesh_name.qc
+        gen_cloud=${tmp_path}/qc/${robot_name}/${mesh_name}.qc
         gen_convex=${gen_path}/convex/${robot_name}/${mesh_name}-ch.txt
         mesh_sampling ${mesh} ${gen_cloud} --type xyz --samples ${sample_points}
         exit_if_error "Failed to sample pointcloud from mesh ${mesh} to ${gen_cloud}"
@@ -50,6 +50,5 @@ function generate_convexes()
 
 generate_convexes
 
-echo
 echo "Successfully generated convex from ${robot_desc_name} package in ${gen_path}"
 
